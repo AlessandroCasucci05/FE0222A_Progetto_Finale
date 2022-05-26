@@ -9,8 +9,12 @@
  </div>
 
 <div id="div" class="fat container d-flex mb-5">
-  <span id="posizione"></span>
-  <button [routerLink]="['/nuovafattura',client.id]" class="mx-4 btn">Aggiungi nuova fattura</button>
+  <div class="posizione">
+    <button [routerLink]="['/clienti']" id="torna"class="btn">Torna ai clienti</button>
+    <button  [routerLink]="['/nuovafattura',client.id]" class="mx-4 btn">Aggiungi nuova fattura</button>
+  </div>
+
+
 
   <div *ngFor="let fatt of fatture; let i=index" class="card" style="width: 18rem;">
     <div class="card-body">

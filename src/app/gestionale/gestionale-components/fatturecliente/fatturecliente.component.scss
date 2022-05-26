@@ -10,8 +10,14 @@ button:hover{
 
 }
 
-#posizione{
-  flex-basis: 75%;
+#torna{
+   background-color:orange;
+}
+
+.posizione{
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .frecc{

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-gestionale',
@@ -7,22 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestionaleComponent implements OnInit {
 
-  cont:number=0;
+  user!:any;
+  nome:string="";
 
 
 
-  constructor() {
-    if (this.cont===0){
-      /* window.location.reload(); */
-      this.cont++;
-    }
-
+  constructor(private authSrv:AuthService) {
    }
 
 
 
 
   ngOnInit(): void {
+     if (localStorage.getItem("utentecorrente")!==null){
+       this.user= localStorage.getItem("utentecorrente");
+       this.user= JSON.parse(this.user);
+       this.nome= this.user.username;
+     }
   }
 
 

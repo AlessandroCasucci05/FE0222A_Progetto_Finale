@@ -4,6 +4,18 @@ h2{
   color:white;
 }
 
+.benvenuto{
+  display:flex;
+  justify-content:space-around;
+}
+
+h3{
+  color:red;
+  font-size: 2.2rem;
+  font-style: italic;
+  margin-bottom:2em;
+}
+
 main{
 
   display: flex;
@@ -18,7 +30,11 @@ main{
 main div{
   font-size: 1.3rem;
   cursor: pointer;
-  min-height: 20vh;
+  min-height: 23vh;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items:center;
   color:white;
   background-color: rgb(55, 55, 132);
   border:1px solid white;
