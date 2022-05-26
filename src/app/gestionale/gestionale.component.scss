@@ -1,0 +1,36 @@
+
+h2{
+  text-align: center;
+  color:white;
+}
+
+main{
+
+  display: flex;
+  gap:4em;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+  justify-content: center;
+  margin-top: 10em;
+}
+
+main div{
+  font-size: 1.3rem;
+  cursor: pointer;
+  min-height: 20vh;
+  color:white;
+  background-color: rgb(55, 55, 132);
+  border:1px solid white;
+  box-shadow: 0.5em 0.5em 2em 0em black;
+}
+
+main div:hover{
+  background-color: rgb(20, 18, 18);
+}
+
+main div h5{
+  font-size: 1.8rem;
+}
+
+

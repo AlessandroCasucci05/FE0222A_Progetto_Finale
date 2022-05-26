@@ -1,0 +1,62 @@
+
+nav{
+  background-color:rgb(16, 16, 67);
+}
+
+
+svg{
+  color:white;
+}
+
+button{
+  border: none;
+  color:white;
+}
+
+a{
+  color:white;
+  cursor: pointer;
+}
+
+p{
+  cursor:pointer;
+
+}
+
+.benvenuto{
+font-style: italic;
+font-weight: 500;
+margin-left: 2em;
+}
+
+
+
+@media screen and (min-width:994px) {
+  .menu{
+     display: flex;
+     justify-content: flex-end;
+  }
+
+  .menu a{
+    margin:0 0.8em 0 0.8em;
+    color:white;
+  }
+
+  #logout{
+     background-color: black;
+  }
+
+  .menu a:hover{
+    background-color: white;
+    color:rgb(55, 55, 132);
+  }
+
+  a{
+    font-weight: 500;
+    border-radius: 4px;
+
+  }
+}
+
+
+

@@ -1,0 +1,29 @@
+<div class="container cont text-light">
+  <form (ngSubmit)="onSubmit()" [formGroup]="fatturaForm">
+    <h2>Creazione di una nuova fattura per {{client.ragioneSociale}}</h2>
+    <div>
+      <label>Data:</label>
+      <input formControlName="data" type="date">
+    </div>
+    <div>
+      <label>Numero Fattura:</label>
+      <input formControlName="numero" type="text">
+    </div>
+    <div>
+      <label>Importo:</label>
+      <input formControlName="importo" type="text">
+    </div>
+    <div>
+      <label>Anno:</label>
+      <input formControlName="anno" type="text">
+    </div>
+    <div>
+      <label>Stato:</label>
+      <select formControlName="stato">
+        <option [value]="stato.id" *ngFor="let stato of fatturastatus">{{stato.nome}}</option>
+      </select>
+    </div>
+    <p class="text-warning fs-5">*Ricorda che gli input sono tutti obbligatori e richiedono cifre numeriche</p>
+    <button [disabled]="fatturaForm.invalid" type="submit" class="btn btn-success fs-4 px-4">Salva fattura</button>
+  </form>
+</div>

@@ -1,0 +1,109 @@
+
+button{
+  font-weight: 500;
+}
+
+span{
+  font-weight: 500;
+}
+
+.input{
+  font-size:1.3rem;
+}
+
+#titles{
+  padding-bottom:0.5em;
+}
+
+nav li a{
+  border-radius: 2px;
+}
+
+
+.grande{
+  box-shadow: -2em 0em 2em 0 black;
+}
+
+.clienti{
+  display: flex;
+  justify-content: space-around;
+  height: 9vh;
+  align-items: center;
+  background-color: gray;
+  color:black;
+  font-size: 1rem;
+  font-weight: 500;
+
+}
+
+#titles{
+  background-color: black;
+  color:orange;
+  font-weight: bold;
+  font-size: 1.3rem;
+
+}
+
+
+a{
+  cursor: pointer;
+  color:black;
+}
+
+a:hover{
+  color:black;
+}
+
+.att{
+  background-color: rgb(114, 112, 112);
+  font-weight: bold;
+}
+
+.piccolo{
+  display: none;
+}
+
+@media screen and(max-width:1200px){
+
+     .grande{
+       display:none;
+     }
+
+     .piccolo{
+       display: block;
+     }
+
+     ul{
+       padding-left: 0;
+       margin: auto;
+     }
+
+     .piccolo li{
+       font-size:1.2rem;
+        list-style: none;
+        display:flex;
+        color:black;
+        flex-direction: column;
+        padding-left: 1em;
+        padding: 1.2em;
+        background-color:grey;
+        border-bottom:1px solid black;
+     }
+
+     .titoletto{
+      margin-right: 0.2em;
+      font-style: italic;
+      color:black;
+      font-weight: bold;
+     }
+
+}
+
+
+@media screen and(max-width:400px){
+
+  .piccolo li{
+    padding-top:1em;
+    font-size: 1rem;
+  }
+}

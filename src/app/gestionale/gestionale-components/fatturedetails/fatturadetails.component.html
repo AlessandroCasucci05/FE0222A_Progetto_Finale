@@ -1,0 +1,50 @@
+
+<h3 class="text-light text-center mb-5">Dettagli Fattura:</h3>
+
+<div class="carta card container mb-4 text-light">
+   <h4 class="text-center mt-3">{{fatturaDettaglio.cliente.ragioneSociale}}</h4>
+   <div class="details d-flex justify-content-between">
+      <span><span class="titoletto">Id fattura:</span>  {{fatturaDettaglio.id}}</span>
+      <span><span class="titoletto">Data:</span>  {{data | date: 'd/M/yy'}}</span>
+   </div>
+   <div class="details d-flex justify-content-between">
+    <span><span class="titoletto">Email cliente:</span>  {{fatturaDettaglio.cliente.email}}</span>
+    <form [formGroup]="statusForm">
+      <span *ngIf="!statusForm?.dirty" class="text-light mx-2">{{statoattivo}}</span>
+      <select formControlName="option" name="stato" id="stato">
+        <option value="1">{{statoattivo}}</option>
+        <option value="2">{{statoDaSelezionare}}</option>
+      </select>
+    </form>
+ </div>
+ <div class="details d-flex justify-content-between">
+  <span><span class="titoletto">Nome cliente:</span> {{fatturaDettaglio.cliente.nomeContatto}} {{fatturaDettaglio.cliente.cognomeContatto}}</span>
+
+ </div>
+ <div class="details  d-flex justify-content-between">
+    <span><span class="titoletto">Importo:</span> {{fatturaDettaglio.importo}} €</span>
+    <button class="btn bg-danger text-light" data-bs-toggle="modal" data-bs-target="#exampleModal">Elimina</button>
+ </div>
+</div>
+<div class="container d-flex justify-content-center">
+  <button (click)="salva()" class="btn bg-success text-light">Salva modifiche</button>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="dialog" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminazione fattura</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Sicuro di voler eliminare la fattura n.{{fatturaDettaglio.id}}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+        <button data-bs-dismiss="modal"  type="button" class="btn btn-danger"  (click)="deleteFatt() ">Sì elimina</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,39 @@
+.sede{
+  display: flex;
+  flex-direction: column;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-radius: 8px;
+  gap:2rem;
+  padding-left: 3rem;
+}
+
+form div{
+  font-size: 1.3rem;
+  display: flex;
+  gap:3em;
+  justify-content: space-between;
+}
+
+.inputs{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.modale{
+  background-color: rgb(16, 16, 67);
+  color:white;
+}
+
+@media screen and (max-width:420px) {
+   form div{
+     font-size: 0.8rem;
+   }
+}

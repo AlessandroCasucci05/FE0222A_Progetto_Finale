@@ -1,0 +1,26 @@
+
+
+<h2 class="text-light fs-2 text-center">Fatture di: {{client.ragioneSociale}}</h2>
+ <h3 class="text-light">Pagina {{dati.pageable.pageNumber+1}}/{{dati.totalPages}}</h3>
+ <div class="d-flex justify-content-center frecccont">
+  <a (click)="pageChange(dati.pageable.pageNumber-1)" class="frecc" >&lt; </a>
+  <span class="scorri mx-2 mt-1">Scorri</span>
+  <a (click)="pageChange(dati.pageable.pageNumber+1)" class="frecc" > &gt;</a>
+ </div>
+
+<div id="div" class="fat container d-flex mb-5">
+  <span id="posizione"></span>
+  <button [routerLink]="['/nuovafattura',client.id]" class="mx-4 btn">Aggiungi nuova fattura</button>
+
+  <div *ngFor="let fatt of fatture; let i=index" class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Fattura id: {{fatt.id}} </h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{fatt.anno}}</h6>
+      <p class="card-text">{{fatt.stato.nome}}</p>
+      <p class="card-text fs-4">{{fatt.importo}} €</p>
+      <a [routerLink]="['/',fatt.id]" class="a card-link">Dettagli fattura</a>
+    </div>
+  </div>
+</div>
+
+<h2 *ngIf="fatture.length===0" class="text-danger text-center fs-2">Non sono ancora presenti fatture di {{client.ragioneSociale}}</h2>

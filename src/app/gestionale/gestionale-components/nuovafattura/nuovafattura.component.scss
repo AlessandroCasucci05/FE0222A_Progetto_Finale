@@ -1,0 +1,32 @@
+
+.cont{
+  display: flex;
+  justify-content: center;
+}
+
+
+form{
+  background-color: black;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  gap:2em;
+  font-size: 1.3rem;
+  align-items: flex-start;
+  padding: 2em;
+}
+
+form div{
+  display: flex;
+  gap:1em;
+}
+
+@media screen and (max-width:445px){
+  form div{
+    gap:0.3em;
+    flex-direction: column;
+  }
+  input, select{
+     width: 90%;
+  }
+}

@@ -1,0 +1,101 @@
+button{
+  font-weight: 500;
+  border:none;
+  background-color: green;
+  color:black
+}
+
+button:hover{
+  background-color: rgb(6, 255, 14);
+
+}
+
+#posizione{
+  flex-basis: 75%;
+}
+
+.frecc{
+  color:white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.scorri{
+  color:white;
+  font-size: 1.3rem;
+}
+
+.frecccont{
+  align-items:center;
+  margin-bottom: 1em;
+}
+
+.fat{
+  flex-wrap: wrap;
+  gap:2rem;
+}
+
+#div{
+  justify-content: flex-start;
+}
+
+h3{
+  font-size: 1.2rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.card{
+  background-color:rgb(0, 0, 0);
+  color:white;
+}
+
+.card:hover{
+  cursor: pointer;
+}
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+  gap:2em;
+}
+
+h5{
+  font-style: italic;
+}
+
+.a{
+  background-color: orange;
+  color:black;
+  text-decoration:none;
+  padding:0.4em;
+  border-radius:3px;
+  display: flex;
+  justify-content:center;
+  font-weight: 500;
+}
+
+a{
+  color:black;
+  cursor: pointer;
+}
+
+a:hover{
+  color:white;
+  background-color: rgb(16, 16, 67)
+}
+
+.a:hover{
+  background-color:rgb(255, 119, 0)
+}
+
+nav li a{
+  font-weight: 500;
+}
+
+@media screen and(max-width:830px) {
+   #div{
+      justify-content: center;
+   }
+}

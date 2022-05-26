@@ -1,0 +1,29 @@
+
+<form [formGroup]="loginForm" (ngSubmit)="signUp()" class="container">
+  <h2 *ngIf="!logged()">Registrati</h2>
+  <h2 *ngIf="logged()">Registra un utente</h2>
+  <div class="mb-3 mt-5">
+    <label for="exampleInputUser1" class="form-label">Username</label>
+    <input formControlName="username" type="text" class="form-control" id="exampleInputUser1">
+    <p *ngIf="username?.invalid && username?.touched" class="text-danger">L'username deve contentere almeno 4 caratteri</p>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1">
+    <p *ngIf="email?.invalid && email?.touched" class="text-danger">Email non valida :(</p>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+    <p *ngIf="password?.invalid && password?.touched" class="text-danger">La password richiede almeno 6 caratteri</p>
+  </div>
+<label for="select" class="form-label">Ruolo</label>
+  <select formControlName="role" id="select" class="form-select" aria-label="Default select example">
+    <option value="1">Admin</option>
+    <option value="2">User</option>
+  </select>
+  <p *ngIf="role?.invalid && role?.touched" class="text-danger">Selezionare un ruolo</p>
+  <button [disabled]="loginForm.invalid" type="submit" class="btn btn-success mt-3 mb-3">Registrati</button>
+  <p *ngIf="!logged()">Se hai già un account, <a routerLink="/login">accedi qui</a></p>
+</form>
+

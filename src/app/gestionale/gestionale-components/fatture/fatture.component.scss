@@ -1,0 +1,82 @@
+
+.fat{
+  flex-wrap: wrap;
+  gap:2rem;
+}
+
+#div{
+  justify-content: flex-start;
+}
+
+h3{
+  font-size: 1.2rem;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.bott{
+  flex-basis: 47.5%;
+}
+
+.search{
+  margin-right: 0.3em;
+  padding:  0.8em;
+  border: none;
+  color:white;
+  background-color:black;
+}
+
+.card{
+  background-color:rgb(0, 0, 0);
+  color:white;
+}
+
+.card:hover{
+  cursor: pointer;
+}
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+  gap:2em;
+}
+
+h5{
+  font-style: italic;
+}
+
+.a{
+  background-color: orange;
+  color:black;
+  text-decoration:none;
+  padding:0.4em;
+  border-radius:3px;
+  display: flex;
+  justify-content:center;
+  font-weight: 500;
+}
+
+a{
+  color:black;
+  cursor: pointer;
+}
+
+a:hover{
+  color:white;
+  background-color: rgb(16, 16, 67);;
+}
+
+.a:hover{
+  background-color:rgb(255, 119, 0);
+}
+
+nav li a{
+  font-weight: 500;
+}
+
+@media screen and(max-width:830px) {
+   #div{
+      justify-content: center;
+   }
+}

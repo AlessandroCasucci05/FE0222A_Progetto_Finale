@@ -1,0 +1,46 @@
+
+<h3 class="text-light">Pagina {{dati.pageable.pageNumber+1}} di {{dati.totalPages}}</h3>
+
+<div class="container d-flex justify-content-center">
+  <div class="mb-5">
+    <input #inp placeholder="Cerca per ragione sociale" class="search rounded" type="text">
+    <div class="mt-2 d-flex justify-content-start gap-1">
+      <button (click)="cercaByRagioneSociale(inp.value,0)" class="btn btn-success bott">Cerca</button>
+      <button (click)="ripristina(inp)" class="btn btn-danger bott">Ripristina</button>
+    </div>
+  </div>
+</div>
+<div id="div" class="fat container d-flex mb-5">
+  <div *ngFor="let fattura of fatture"class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Fattura id: {{fattura.id}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{fattura.anno}}</h6>
+      <p class="card-text">{{fattura.cliente.ragioneSociale}}</p>
+      <p class="card-text">{{fattura.stato.nome}}</p>
+      <p class="card-text fs-4">{{fattura.importo}} €</p>
+      <a [routerLink]="['/',fattura.id]" class="a card-link">Dettagli fattura</a>
+    </div>
+  </div>
+</div>
+
+<nav *ngIf="!fattureByRagioneSociale" class="mb-5" aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <a  class="page-link" (click)="getFatture(0)">First</a>
+    </li>
+    <li *ngIf="!dati.first" class="page-item "><a class="page-link" (click)="getFatture(dati.pageable.pageNumber-1)">Previous</a></li>
+    <li *ngIf="!dati.last" class="page-item"><a class="page-link"  (click)="getFatture(dati.pageable.pageNumber+1)" >Next</a></li>
+    <li class="page-item"> <a class="page-link" (click)="getFatture(dati.totalPages-1)" >Last</a></li>
+  </ul>
+</nav>
+
+<nav *ngIf="fattureByRagioneSociale" class="mb-5" aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <a  class="page-link" (click)="cercaByRagioneSociale(inp.value,0)">First</a>
+    </li>
+    <li *ngIf="!dati.first" class="page-item "><a class="page-link" (click)="cercaByRagioneSociale(inp.value,dati.pageable.pageNumber-1)">Previous</a></li>
+    <li *ngIf="!dati.last" class="page-item"><a class="page-link"  (click)="cercaByRagioneSociale(inp.value,dati.pageable.pageNumber+1)" >Next</a></li>
+    <li class="page-item"> <a class="page-link" (click)="cercaByRagioneSociale(inp.value,dati.totalPages-1)" >Last</a></li>
+  </ul>
+</nav>

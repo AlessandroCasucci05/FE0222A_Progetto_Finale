@@ -1,0 +1,38 @@
+form{
+  max-width: 25%;
+  margin: auto;
+  background-color: rgb(16, 16, 67);
+  padding: 3em;
+  border-radius: 3px;
+  color:white;
+  margin-top:5em;
+}
+
+form input{
+  font-weight: 500;
+  color:white;
+  border: none;
+  background-color:rgb(55, 55, 132);
+}
+
+a{
+  color:white;
+}
+
+@media screen and(max-width:1111px) {
+   form{
+     max-width: 40%;
+   }
+}
+
+@media screen and(max-width:674px) {
+  form{
+    max-width: 80%;
+  }
+}
+
+@media screen and(max-width:385px) {
+  form{
+    max-width: 90%;
+  }
+}

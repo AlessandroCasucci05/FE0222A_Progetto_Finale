@@ -1,0 +1,98 @@
+
+<div>
+  <h2 class="text-center text-light fs-1 mb-5">Lista Clienti</h2>
+</div>
+<div class="mb-5 d-flex justify-content-around">
+  <div></div>
+  <button routerLink="/nuovocliente" class="btn btn-warning d-flex align-items-center">Aggiungi Cliente <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="mx-1 bi bi-plus-lg" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+  </svg></button>
+</div>
+
+
+<ul *ngIf="loaded" class="list-group container grande mb-4">
+  <li id="titles" class="clienti list-group-item row">
+    <span class="col-1">Id</span>
+    <span class="col-2">Ragione Sociale</span>
+    <span class="col-2">Partita IVA</span>
+    <span class="col-2">Email</span>
+    <span class="col-4"><input #inp class="input" placeholder="Cerca per Ragione Sociale" type="text">
+      <button (click)="cerca(inp.value)" class="btn btn-success mx-2 mb-2">Cerca</button></span>
+  </li>
+  <li *ngFor="let cliente of clienti let i=index"  class=" clienti list-group-item row">
+    <span class="col-1">{{cliente.id}}</span>
+    <span class="col-2">{{cliente.ragioneSociale}}</span>
+    <span class="col-2">{{cliente.partitaIva}}</span>
+    <span class="col-2">{{cliente.email}}<span></span></span>
+    <span class="col-4 bottoni">
+      <button [routerLink]="['/fatturecliente',cliente.id]" class="btn btn-info mx-3">Fatture</button>
+      <button class="btn btn-warning mx-3" [routerLink]="['/modificacliente',cliente.id]" >Modifica</button>
+      <button class="btn btn-danger mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"(click)="elimina(i,cliente.id)">Elimina</button>
+    </span>
+  </li>
+</ul>
+
+<div class="piccolo container">
+  <ul>
+    <li *ngFor="let cliente of clienti let i=index">
+     <span> <span class="titoletto">Id:</span> {{cliente.id}}</span>
+     <span> <span class="titoletto">Ragione Sociale:</span>{{cliente.ragioneSociale}}</span>
+     <span> <span class="titoletto">P.Iva:</span> {{cliente.partitaIva}}</span>
+     <span class="mb-3"> <span class="titoletto">Email:</span> <span>{{cliente.email}} </span></span>
+     <button [routerLink]="['/fatturecliente',cliente.id]" class="btn btn-info mt-3 mb-2">Fatture</button>
+     <button class="btn btn-warning my-2" [routerLink]="['/modificacliente',cliente.id]" >Modifica</button>
+     <button class="btn btn-danger my-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"(click)="elimina(i,cliente.id)">Elimina</button>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!loaded" class="text-center mt-5 fs-4 text-light">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<nav *ngIf="loaded && !ricerca" aria-label="..." class="d-flex justify-content-center mt-5 mb-3">
+  <ul class="pagination">
+    <li *ngIf="!dati.first" class="rounded-circle page-item">
+      <a class="fs-5 page-link" (click)="getClients(0)">First</a>
+    </li>
+    <li class="page-item">
+      <a *ngIf="dati.last"  class="fs-5 page-link" (click)="getClients(numberPage-1)">{{numberPage}}</a>
+    </li>
+    <li class="page-item">
+      <a ngClass="att" class="fs-5 page-link" (click)="getClients(numberPage)">{{numberPage+1}}</a>
+    </li>
+    <li class="page-item"  aria-current="page">
+      <a *ngIf="!dati.last" class="fs-5 page-link" (click)="getClients(numberPage+1)">{{numberPage+2}}</a>
+    </li>
+    <li class="fs-5 page-item">
+      <a *ngIf="!dati.last && numberPage<dati.totalPages-2" class="page-link" (click)="getClients(numberPage+2)" >{{numberPage+3}}</a>
+    </li>
+    <li *ngIf="!dati.last" class="rounded-circle page-item">
+      <a class="fs-5 page-link" (click)="getClients(dati.totalPages-1)">Last</a>
+    </li>
+  </ul>
+</nav>
+
+<div *ngIf="ricerca" class="d-flex justify-content-center">
+  <button (click)="getClients(0)" class="btn btn-danger">Torna a tutti i clienti</button>
+</div>
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-secondary text-light">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Eliminazione Cliente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Sei sicuro di voler eliminare il cliente? Eliminerai di conseguenza anche tutte le sue fatture
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="deleteUser()" data-bs-dismiss="modal" class="btn btn-danger">Conferma di volerlo eliminare</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<form [formGroup]="clientForm" class="container" (ngSubmit)="onSubmit()">
+  <div class="contenitore">
+    <h3 class="text-center fs-2 text-light mb-5">Crea nuovo cliente</h3>
+    <div>
+      <label>Ragione Sociale*:</label>
+      <input formControlName="ragionesociale" type="text">
+    </div>
+    <div>
+      <label>Email:*</label>
+      <input formControlName="email" type="email">
+    </div>
+    <div>
+      <label>Partita Iva:*</label>
+      <input formControlName="partitaiva" type="text">
+    </div>
+    <div>
+      <label>Pec:</label>
+      <input formControlName="pec" type="text">
+    </div>
+    <div>
+      <label>Tipo Cliente:*</label>
+      <select formControlName="tipocliente">
+        <option *ngFor="let tipo of tipiClienti" [value]="tipo">{{tipo}}</option>
+      </select>
+    </div>
+    <div>
+      <label>Telefono:</label>
+      <input formControlName="telefono" type="text">
+    </div>
+    <div>
+      <label>Nome Contatto:</label>
+      <input formControlName="nomecontatto" type="text">
+    </div>
+    <div>
+      <label>Cognome Contatto:</label>
+      <input formControlName="cognomecontatto" type="text">
+    </div>
+    <div>
+      <label>Telefono Contatto</label>
+      <input formControlName="telefonocontatto" type="tel">
+    </div>
+    <div>
+      <label>Email Contatto*</label>
+      <input formControlName="emailcontatto" type="email">
+    </div>
+    <div>
+      <label>Via</label>
+      <input formControlName="via" type="text">
+    </div>
+    <div>
+      <label>Civico</label>
+      <input formControlName="civico" type="text">
+    </div>
+    <div>
+      <label>Cap</label>
+      <input formControlName="cap" type="text">
+    </div>
+    <div>
+      <label>Località</label>
+      <input formControlName="localita" type="text">
+    </div>
+    <div>
+      <label>Comune*</label>
+      <select formControlName="comune" (ngModelChange)="updateProv()">
+        <option *ngFor="let comune of comuni" [value]="comune.id">{{comune.nome}}</option>
+      </select>
+    </div>
+    <div>
+      <label>Provincia</label>
+      <input readonly [(ngModel)]="prov"  formControlName="provincia" type="text">
+    </div>
+    <button [disabled]="clientForm.invalid" type="submit" class="btn btn-success fs-5 px-4">Crea</button>
+  </div>
+</form>

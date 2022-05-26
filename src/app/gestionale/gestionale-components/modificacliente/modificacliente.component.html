@@ -1,0 +1,124 @@
+<form [formGroup]="clientForm" class="text-light container mb-3" *ngIf="cliente">
+  <h2 class="my-4">Modifica cliente</h2>
+  <div class="inputs">
+    <div>
+      <label for="ragionesociale">Ragione Sociale:*</label>
+      <input formControlName="ragionesociale" id="ragionesociale" type="text" [(ngModel)]="clienteNew.ragioneSociale">
+    </div>
+    <span *ngIf="ragionesociale?.invalid && ragionesociale?.touched" class="mb-4 fs-6 text-danger text-end">Questo campo
+      è obbligatorio</span>
+    <div>
+      <label for="email">Email:*</label>
+      <input [(ngModel)]="clienteNew.email" formControlName="email" id="email" type="email">
+    </div>
+    <span *ngIf="email?.invalid && email?.touched" class="mb-4 fs-6 text-danger text-end">Questo campo è
+      obbligatorio</span>
+    <div>
+      <label for="partitaiva">Partita Iva:*</label>
+      <input [(ngModel)]="clienteNew.partitaIva" formControlName="partitaiva" id="partitaiva" type="text">
+    </div>
+    <span *ngIf="partitaiva?.invalid && partitaiva?.touched" class="mb-4 fs-6 text-danger text-end">Questo campo è
+      obbligatorio</span>
+    <div>
+      <label for="pec">Pec:</label>
+      <input [(ngModel)]="clienteNew.pec" formControlName="pec" id="pec" type="email">
+    </div>
+    <span *ngIf="pec?.invalid && pec?.touched" class="mb-4 fs-6 text-danger text-end">Questo campo è obbligatorio</span>
+    <div>
+      <label for="tipocliente">Tipo Cliente:*</label>
+      <select formControlName="tipocliente" name="tipocliente" id="tipocliente" [(ngModel)]="clienteNew.tipoCliente">
+        <option [value]="tipo" *ngFor="let tipo of tipiCliente">{{tipo}}</option>
+      </select>
+    </div>
+    <span *ngIf="tipocliente?.invalid && tipocliente?.touched" class="mb-4 fs-6 text-danger text-end">Questo campo è
+      obbligatorio</span>
+    <div>
+      <label for="Telefono">Telefono:</label>
+      <input [(ngModel)]="clienteNew.telefono" formControlName="telefono" id="telefono" type="text">
+    </div>
+    <span *ngIf="telefono?.invalid && telefono?.touched" class="mb-4 fs-6 text-danger text-end">Questo campo è
+      obbligatorio</span>
+    <div>
+      <label for="nome">Nome contatto:</label>
+      <input [(ngModel)]="clienteNew.nomeContatto" formControlName="nomecontatto" id="nome" type="text">
+    </div>
+    <span *ngIf="nomecontatto?.invalid && nomecontatto?.touched" class="mb-4 fs-6 text-danger text-end">Questo campo è
+      obbligatorio</span>
+    <div>
+      <label for="cognome">Cognome contatto</label>
+      <input [(ngModel)]="clienteNew.cognomeContatto" formControlName="cognomecontatto" id="cognome" type="text">
+    </div>
+    <span *ngIf="cognomecontatto?.invalid && cognomecontatto?.touched" class="mb-4 fs-6 text-danger text-end">Questo
+      campo è obbligatorio</span>
+    <div>
+      <label for="telcontatto">Telefono contatto</label>
+      <input [(ngModel)]="clienteNew.telefonoContatto" formControlName="telefonocontatto" id="telcontatto" type="text">
+    </div>
+    <span *ngIf="telefonocontatto?.invalid && telefonocontatto?.touched" class="mb-4 fs-6 text-danger text-end">Questo
+      campo è obbligatorio</span>
+    <div>
+      <label for="emailcont">Email contatto*</label>
+      <input [(ngModel)]="clienteNew.emailContatto" formControlName="emailcontatto" type="email" id="emailcont">
+    </div>
+    <span *ngIf="emailcontatto?.invalid && emailcontatto?.touched" class="mb-4 fs-6 text-danger text-end">Questo campo è
+      obbligatorio</span>
+
+
+
+    <div>
+      <label for="via">Via</label>
+      <input [(ngModel)]="clienteNew.indirizzoSedeOperativa.via" formControlName="via" id="via" type="text">
+    </div>
+    <span *ngIf="via?.invalid && via?.touched" class="mb-4 fs-6 text-danger text-end">Questo campo è obbligatorio</span>
+    <div>
+      <label for="civico">Civico</label>
+      <input [(ngModel)]="clienteNew.indirizzoSedeOperativa.civico" formControlName="civico" id="civico" type="text">
+    </div>
+    <span *ngIf="civico?.invalid && civico?.touched" class="mb-4 fs-6 text-danger text-end">Questo campo è
+      obbligatorio</span>
+    <div>
+      <label for="cap">Cap:</label>
+      <input [(ngModel)]="clienteNew.indirizzoSedeOperativa.cap" formControlName="cap" id="cap" type="text">
+    </div>
+    <span *ngIf="cap?.invalid && cap?.touched" class="mb-4 fs-6 text-danger text-end">Questo campo è obbligatorio</span>
+    <div>
+      <label for="loc">Località:</label>
+      <input [(ngModel)]="clienteNew.indirizzoSedeOperativa.localita" formControlName="localita" id="loc" type="text">
+    </div>
+
+
+    <div>
+      <label for="comune">Comune* {{comune}}</label>
+      <select name="comune" id="comune" formControlName="comune" (ngModelChange)="updateProvincia()">
+        <option *ngFor="let com of comuni" [value]="com.id">{{com.nome}}</option>
+      </select>
+    </div>
+    <span *ngIf="name?.invalid && name?.touched" class="mb-4 fs-6 text-danger text-end">Questo campo è
+      obbligatorio</span>
+
+    <div class="mb-5">
+      <label for="prov">Provincia</label>
+      <input readonly formControlName="provincia" [(ngModel)]="provinciaAggiornata" type="text">
+    </div>
+  </div>
+  <button data-bs-toggle="modal" data-bs-target="#exampleModal" [disabled]="clientForm.invalid" class="mb-5 btn btn-warning">Salva modifiche</button>
+</form>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content modale">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Salva modifiche</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Confermi di voler modificare l'utente?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+        <button (click)="onSubmit()" type="button" data-bs-dismiss="modal" class="btn btn-success">Salva modifiche</button>
+      </div>
+    </div>
+  </div>
+</div>
+

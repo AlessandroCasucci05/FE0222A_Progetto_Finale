@@ -1,0 +1,16 @@
+
+<form [formGroup]="loginForm"  (ngSubmit)="logIn()">
+  <h2>Accedi ora</h2>
+  <div class="mb-3 mt-5">
+    <label for="username1" class="form-label">Username</label>
+    <input formControlName="username" type="text" class="form-control" id="username1">
+    <p *ngIf="username?.invalid && username?.touched" class="text-danger">Email non valida</p>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+    <p *ngIf="password?.invalid && password?.touched" class="text-danger">Password non valida</p>
+  </div>
+  <button [disabled]="loginForm.invalid" type="submit" class="btn btn-success mb-3">Accedi</button>
+  <p>Se non hai ancora un account, <a routerLink="/signup">registrati qui</a></p>
+</form>

@@ -1,0 +1,81 @@
+
+
+h2{
+  font-size: 2.2rem;
+}
+
+.paginazione{
+   display: flex;
+   justify-content:space-around;
+   margin-bottom:2em;
+}
+
+button{
+  background-color:rgb(16, 16, 67);
+  border: none;
+  font-weight:bold;
+  font-size:1.7rem
+}
+
+span{
+  font-weight: 500;
+}
+
+
+.header{
+  border: none;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  color:orange;
+  background-color: black;
+}
+
+li{
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(112, 107, 107);
+  color:white;
+  border-bottom: 2px solid rgb(255, 255, 255);
+
+}
+
+.piccolo{
+  display: none;
+}
+
+.grande{
+  box-shadow: -2em 0em 2em 0 black;
+}
+
+@media screen and(max-width:770px) {
+
+     .grande{
+       display:none;
+     }
+
+     .piccolo{
+       display: block;
+     }
+
+     ul{
+       padding-left: 0;
+     }
+
+     .piccolo li{
+        flex-direction: column;
+        height: 20vh;
+        padding-left: 1em;
+     }
+
+     .titoletto{
+      font-style: italic;
+      color:orange;
+      font-weight: 500;
+     }
+
+
+}
+

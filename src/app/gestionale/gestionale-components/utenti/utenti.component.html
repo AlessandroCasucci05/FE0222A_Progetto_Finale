@@ -1,0 +1,51 @@
+
+<div class="d-flex justify-content-center mb-5">
+  <h2 class="text-light">Lista utenti registrati</h2>
+</div>
+
+<div class="paginazione">
+  <span></span>
+  <span>
+    <button [disabled]="dati.first" (click)="getAll(dati.pageable.pageNumber-1)">
+      <code>&lt;&lt;</code>
+    </button>
+    <span class="mx-2 text-light">PAG. {{dati.pageable.pageNumber+1}}/{{dati.totalPages}}</span>
+    <button [disabled]="dati.last" (click)="getAll(dati.pageable.pageNumber+1)">
+      <code>&gt;&gt;</code>
+    </button>
+  </span>
+</div>
+
+<ul class="list-group container grande mb-4">
+  <li id="titles" class="list-group-item header row justify-content-center">
+    <span class="col-3">Id</span>
+    <span class="col-3">Username</span>
+    <span class="col-3">Email</span>
+    <span class="col-3">Ruolo</span>
+  </li>
+  <li *ngFor="let user of utenti" class="list-group-item row justify-content-center">
+    <span class="col-3">{{user.id}}</span>
+    <span class="col-3">{{user.username}}</span>
+    <span class="col-3">{{user.email}}</span>
+    <span class="col-3"><span *ngFor="let r of user.roles">{{r.roleName}} </span> </span>
+  </li>
+</ul>
+
+<div *ngIf="!loaded" class="text-center mt-5 fs-4 text-light">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="piccolo container">
+   <ul>
+     <li *ngFor="let user of utenti">
+      <span> <span class="titoletto">Id:</span> {{user.id}}</span>
+      <span> <span class="titoletto">Username:</span> {{user.username}}</span>
+      <span> <span class="titoletto">Email:</span> {{user.email}}</span>
+      <span> <span class="titoletto">Ruolo:</span><span *ngFor="let r of user.roles"> {{r.roleName}} </span> </span>
+     </li>
+   </ul>
+</div>
+
+
